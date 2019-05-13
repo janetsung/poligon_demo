@@ -1,0 +1,43 @@
+body, html {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #555;
+  height: 100%;
+  overflow: hidden;
+}
+
+.header {
+  padding-top: 10px;
+  padding-left: 10px;
+  background: #555;
+  color: #f1f1f1;
+}
+
+.content {
+  padding: 5px;
+}
+
+#sentence_box {
+  left: 10px;
+  position: absolute;
+  padding-right: 100px;
+  font-size: 11px;
+  background: rgba(256, 256, 256, 0.3);
+}
+
+
+#graph_column {
+  height:100%;
+  width: 50%;
+  left: 0;
+  overflow-y: scroll; 
+  position: absolute;
+}
+
+#news_column {
+  height:90%;
+  width: 50%;
+  right: 0;
+  position: absolute;
+  overflow-y: scroll; 
+}

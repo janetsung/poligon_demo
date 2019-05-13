@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Poligon: Brexit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="landing.css">
+  <link rel="stylesheet" href="graph2.css">
+  <link rel="stylesheet" href="news.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+<body>
+
+<!---
+<div class="top-container">
+  <h1>Scroll Down</h1>
+  <p>Scroll down to see the sticky effect.</p>
+</div> --->
+
+  <div class="header" id="myHeader">
+    <div class="row">
+      <div class="col-lg-1"><h2>Brexit</h2></div>
+      <div class="col-lg-11" style="font-size:12px">Brexit is the withdrawal of the United Kingdom (UK) from the European Union (EU). Following a referendum held on 23 June 2016 in which 51.9 per cent of those voting supported leaving the EU, the invocation of Article 50 of the Treaty on European Union started a two-year process which was due to conclude with the UK's exit on 29 March 2019. On 21 March 2019 the European Council agreed to the UK's request to extend the deadline and extended it to 12 April 2019 if, as subsequently happened, the UK did not ratify the Brexit withdrawal agreement by 29 March 2019.</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3 col-md-6 col-lg-7 content" style="background-color:white;" id="graph_column">
+      <p id="graph" class="graph"></p>
+      <div class="col-sm-12 col-md-12 col-lg-12" style="padding:10px;background-color: white; font-size: 11px; background: rgba(256, 256, 256, 0.3);" id="sentence_box"> </div>
+    </div>
+    <div class="col-sm-9 col-md-6 col-lg-5 content" style="background-color:white;" id="news_column">
+        
+        <p style="text-align: right; padding-right: 20px; font-size: 12px"> Number of News Processed: 3    <br></p>
+        <div id="news_content"></div>
+        <!--<script src="news.js"></script>-->
+      <!-- <iframe src="test.html" height="300" width="400" frameborder="0" id="news"></iframe>-->
+      
+    </div>
+  </div>
+<script src="graph2.js"></script>
+</body>
+</html>
