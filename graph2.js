@@ -88,7 +88,7 @@ links_g.append("defs").selectAll("marker")
       .attr("d", "M0, -5L10, 0L0, 5")
       .style("fill", "#ccc");
 
-d3.tsv("news.tsv", function(data){
+d3.tsv("https://janetsung.github.io/poligon_demo/news.tsv", function(data){
   var cards = d3.select('#news_content')
               .selectAll('.card')
               .data(data);
