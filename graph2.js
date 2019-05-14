@@ -1,5 +1,5 @@
-var width = 620,
-    height = 400;
+var width = window.innerWidth,
+    height = window.innerHeight;
 
 var news_content = d3.select("#news");
 
@@ -11,7 +11,7 @@ var force = d3.layout.force()
     .size([width, height]);
 
 var x = d3.scale.linear()
-    .domain([0, 15])
+    .domain([0, 10])
     .range([250, 80])
     .clamp(true);
 
@@ -30,6 +30,11 @@ var nodes_g = svg.append("g");
 var links_label_g = svg.append("g")
 
 var nodes_label_g = svg.append("g")
+
+var div = d3.select("#graph").append("div") 
+    .attr("class", "tooltip")      
+    .style("opacity", 0);
+
 
 svg.append("g")
     .attr("class", "x axis")
@@ -88,7 +93,8 @@ links_g.append("defs").selectAll("marker")
       .attr("d", "M0, -5L10, 0L0, 5")
       .style("fill", "#ccc");
 
-d3.tsv("https://janetsung.github.io/poligon_demo/news.tsv", function(data){
+/*
+d3.tsv("news.tsv", function(data){
   var cards = d3.select('#news_content')
               .selectAll('.card')
               .data(data);
@@ -101,7 +107,7 @@ d3.tsv("https://janetsung.github.io/poligon_demo/news.tsv", function(data){
         //console.log(d.headline.substring(5,20));
         return "<h2>" + d.headline + "</h2>" + "<p>"+d.content+"</p>"; }) 
 
-});
+});*/
 
 
 d3.json("data.json", function(error, graph) {
@@ -189,8 +195,19 @@ d3.json("data.json", function(error, graph) {
     node.append("circle")
         .attr("r", function(d){return d.size*2;})
         .style("fill", function(d) { return color(d.group); })
-        .on("mouseover",function(d){ update_sent(d.sentence);})
-        .on("mouseout",function(d){ clean_sent(); });
+        .on("mouseover",function(d){ 
+          div.transition()
+              .duration(200)
+              .style("opacity",.9);
+          div.html("<h4>"+d.text+"</h4>"+d.sentence)
+              .style("left", "50px")
+              .style("top", "50px");})
+        .on("mouseout",function(d){
+          //div.transition()
+          //    .duration(20)
+          //    .style("opacity",0);
+
+        });
 
     var nodeLabel = nodes_label_g.selectAll(".node")
         .data(thresholded_nodes, function(d){ return d.id; });
@@ -202,7 +219,7 @@ d3.json("data.json", function(error, graph) {
         //.text(function(d){ return d.text;
         .attr("font-size", "10px")
         .text(function(d) {
-          if (d.size < (threshold+3)){
+          if (d.size < (threshold+5)){
             return d.text;
           }
           else{
